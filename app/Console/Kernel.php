@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Console;
-abc
+
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
