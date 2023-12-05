@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 
-@include('admin.alert')
+{{-- @include('admin.alert') --}}
         <form method="post">
                 <div class="card-body">
                   <div class="form-group">

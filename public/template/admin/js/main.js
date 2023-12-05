@@ -41,9 +41,9 @@ $('#upload').change(function () {
                 $('#image_show').html('<a href="' + results.url + '" target="_blank">' +
                     '<img src="' + results.url + '" width="100px"></a>');
 
-                $('#thumb').val(results.url);
+                $('#file').val(results.url);
             } else {
-                alert('Upload File Lỗi');
+                alert('Upload File Lỗi: ' + results.message);
             }
             // console.log(results);
         }
