@@ -5,14 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
-use App\Http\Services\CartService;
+use App\Http\Services\Cart\CartService;
+use App\Models\Cart;
 
 class CartController extends Controller
 {
     protected $cart;
-    public function __construct(CartService $cart)
+    protected $cartService;
+    public function __construct(CartService $cartService)
     {
-        $this->cart = $cart;
+        $this->cart = $cartService;
     }
 
     public function index()
@@ -32,5 +34,17 @@ class CartController extends Controller
             'customer' => $customer,
             'carts' => $carts
         ]);
+    }
+    public function destroy(Request $request)
+    {
+        $result = $this->cartService->delete($request);
+        if ($result) {
+            return response()->json([
+                'error' => false,
+                'message' => 'Xóa thành công đơn hàng'
+            ]);
+        }
+
+        return response()->json([ 'error' => true ]);
     }
 }

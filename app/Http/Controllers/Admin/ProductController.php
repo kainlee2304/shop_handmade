@@ -41,9 +41,9 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    public function show($id)
+    public function show(Product $product)
     {
-        $product = Product::where("id" , "=" , $id)->get();
+        // $product = Product::where("id" , "=" , $id)->get();
         // dd($product) ;
         return view('admin.product.edit', [
             'title' => 'Chỉnh Sửa Sản Phẩm',
@@ -57,7 +57,7 @@ class ProductController extends Controller
     {
         $result = $this->productService->update($request, $product);
         if ($result) {
-            return redirect('/admin/product/list');
+            return redirect('/admin/products/list');
         }
 
         return redirect()->back();
