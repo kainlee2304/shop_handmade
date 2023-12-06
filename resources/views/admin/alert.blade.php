@@ -1,4 +1,4 @@
-
+ 
  
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -11,7 +11,8 @@
 @endif
 
 
-@if (Session::has('class') && Session::has('message'))
+
+ @if (Session::has('class') && Session::has('message'))
     <div class="alert alert-danger" >{{ Session::get('message') }}</div>
 @endif
 
@@ -23,4 +24,4 @@
     <div class="alert alert-danger"r role="alert">
         {{Session::get('error')}}
     </div>
-@endif
+@endif 
